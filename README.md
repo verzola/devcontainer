@@ -3,6 +3,7 @@
 ## Requirements
 - [Docker](https://docs.docker.com/get-docker/)
 - [Visual Studio Code](https://code.visualstudio.com/)
+- [Remote Containers extension](https://code.visualstudio.com/docs/remote/containers)
 
 ## Setup
 1. Copy the `.devcontainer` folder to your project;
@@ -14,6 +15,8 @@
 ## Comes with
 - Docker
 - Docker Compose
+- PHP
+- Composer
 - NodeJS
 - Oh My Zsh
 - Fzf
