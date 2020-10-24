@@ -1,7 +1,7 @@
 FROM ubuntu
 ARG DEBIAN_FRONTEND=noninteractive
 # install basic packages
-RUN apt update
+RUN apt update && apt full-upgrade
 RUN apt install -y git \
     curl \
     wget \
