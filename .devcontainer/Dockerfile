@@ -14,7 +14,8 @@ RUN apt install -y git \
     htop \
     gnupg \
     locales \
-    locales-all 
+    locales-all \
+    php-cli
 # install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_12.x  | bash -
 RUN apt-get -y install nodejs
@@ -31,6 +32,8 @@ RUN apt-get update \
 RUN LATEST_COMPOSE_VERSION=$(curl -sSL "https://api.github.com/repos/docker/compose/releases/latest" | grep -o -P '(?<="tag_name": ").+(?=")') \
     && curl -sSL "https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose
+# install composer
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 # configure pt_BR locale
 ENV LC_ALL pt_BR.UTF-8
 ENV LANG pt_BR.UTF-8
@@ -38,6 +41,7 @@ ENV LANGUAGE pt_BR.UTF-8
 # docker configuration
 COPY ./scripts/docker-debian.sh /tmp/library-scripts/
 RUN apt-get update && bash /tmp/library-scripts/docker-debian.sh
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ENTRYPOINT ["/usr/local/share/docker-init.sh"]
 # change shell to zsh
 RUN chsh -s ~/.zshrc
