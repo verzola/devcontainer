@@ -1,10 +1,18 @@
 {
   "name": "justdigital/devcontainer",
   // use dockerfile to build dev container
-  "build": { "dockerfile": "Dockerfile" },
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   // forward common development ports
-  "forwardPorts": [ 3000, 3001 ],
-  "appPort": [ 3000, 3001 ],
+  "forwardPorts": [
+    3000,
+    3001
+  ],
+  "appPort": [
+    3000,
+    3001
+  ],
   // install project dependencies after container is created
   "postCreateCommand": "npm install",
   // use zsh on integrated shell
@@ -12,9 +20,15 @@
     "terminal.integrated.shell.linux": "/usr/bin/zsh"
   },
   // config to make docker work inside container
-  "runArgs": ["--init" ],
-  "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind" ],
-	//"remoteEnv": { "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}" },
+  "runArgs": [
+    "--init"
+  ],
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind"
+  ],
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  },
   "extensions": [
     "ms-azuretools.vscode-docker"
   ]

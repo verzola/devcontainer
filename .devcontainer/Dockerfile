@@ -1,11 +1,13 @@
 FROM ubuntu
 ARG DEBIAN_FRONTEND=noninteractive
+# install basic packages
 RUN apt update
 RUN apt install -y git \
     curl \
     wget \
     vim \
     zsh \
+    fzf \
     tmux \
     gnupg \
     locales \
@@ -13,8 +15,6 @@ RUN apt install -y git \
 # install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_12.x  | bash -
 RUN apt-get -y install nodejs
-# install tmux plugin manager
-RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # install oh my zsh
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # install docker
@@ -32,8 +32,10 @@ RUN LATEST_COMPOSE_VERSION=$(curl -sSL "https://api.github.com/repos/docker/comp
 ENV LC_ALL pt_BR.UTF-8
 ENV LANG pt_BR.UTF-8
 ENV LANGUAGE pt_BR.UTF-8
-# change shell to zsh
+# docker configuration
 COPY ./scripts/docker-debian.sh /tmp/library-scripts/
 RUN apt-get update && bash /tmp/library-scripts/docker-debian.sh
 ENTRYPOINT ["/usr/local/share/docker-init.sh"]
-CMD ["sleep", "infinity"]
+# change shell to zsh
+RUN chsh -s ~/.zshrc
+CMD ["zsh"]
