@@ -10,6 +10,7 @@ RUN apt install -y git \
     zsh \
     fzf \
     tmux \
+    htop \
     gnupg \
     locales \
     locales-all 
