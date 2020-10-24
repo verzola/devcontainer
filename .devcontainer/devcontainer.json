@@ -25,6 +25,7 @@
   "extensions": [
     "christian-kohler.npm-intellisense",
     "christian-kohler.path-intellisense",
+    "coenraads.bracket-pair-colorizer",
     "dbaeumer.vscode-eslint",
     "dracula-theme.theme-dracula",
     "eamodio.gitlens",
@@ -33,12 +34,17 @@
     "esbenp.prettier-vscode",
     "felixfbecker.php-pack",
     "github.vscode-pull-request-github",
+    "junstyle.php-cs-fixer",
+    "kokororin.vscode-phpfmt",
     "mikestead.dotenv",
     "ms-azuretools.vscode-docker",
     "ms-vsliveshare.vsliveshare",
     "redhat.vscode-yaml",
+    "shardulm94.trailing-spaces",
     "visualstudioexptteam.vscodeintellicode",
     "vivaxy.vscode-conventional-commits",
-    "yzhang.markdown-all-in-one"
+    "wayou.vscode-todo-highlight",
+    "yzhang.markdown-all-in-one",
+    "zignd.html-css-class-completion",
   ]
 }
