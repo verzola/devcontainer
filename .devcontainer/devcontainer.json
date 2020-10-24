@@ -30,18 +30,22 @@
     "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
   },
   "extensions": [
-    "ms-azuretools.vscode-docker",
-    "vivaxy.vscode-conventional-commits",
-    "dbaeumer.vscode-eslint",
-    "eamodio.gitlens",
-    "eg2.vscode-npm-script",
     "christian-kohler.npm-intellisense",
     "christian-kohler.path-intellisense",
+    "dbaeumer.vscode-eslint",
+    "dracula-theme.theme-dracula",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "eg2.vscode-npm-script",
     "esbenp.prettier-vscode",
+    "felixfbecker.php-pack",
+    "github.vscode-pull-request-github",
+    "mikestead.dotenv",
+    "ms-azuretools.vscode-docker",
+    "ms-vsliveshare.vsliveshare",
     "redhat.vscode-yaml",
     "visualstudioexptteam.vscodeintellicode",
-    "ms-vsliveshare.vsliveshare",
-    "editorconfig.editorconfig",
-    "mikestead.dotenv"
+    "vivaxy.vscode-conventional-commits",
+    "yzhang.markdown-all-in-one",
   ]
 }
