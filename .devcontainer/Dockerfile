@@ -6,6 +6,7 @@ RUN apt install -y git \
     curl \
     wget \
     vim \
+    build-essential \
     zsh \
     fzf \
     tmux \
