@@ -1,4 +1,5 @@
-# devcontainer
+# devcontainer-base
+Development container with common tools for web development with JavaScript and PHP.
 
 ## Requirements
 - [Docker](https://docs.docker.com/get-docker/)
@@ -8,7 +9,8 @@
 ## Setup
 1. Copy the `.devcontainer` folder to your project;
 2. Open the project with VSCode;
-3. Click on "Reopen in container" when it pop ups on the bottom right;
+3. Click on "Reopen in Container" when it pop ups on the bottom right;
+![Reopen in container](img/popup.png)
 4. Wait for the container to be built;
 5. Done!
 
@@ -17,6 +19,6 @@
 - Docker Compose
 - PHP
 - Composer
-- NodeJS
+- NodeJS & NPM
 - Oh My Zsh
 - Fzf
