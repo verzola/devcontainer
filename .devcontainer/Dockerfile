@@ -9,6 +9,7 @@ RUN apt install -y git \
     unzip \
     vim \
     build-essential \
+    software-properties-common \
     zsh \
     fzf \
     tmux \
@@ -35,6 +36,11 @@ RUN LATEST_COMPOSE_VERSION=$(curl -sSL "https://api.github.com/repos/docker/comp
     && chmod +x /usr/local/bin/docker-compose
 # install composer
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+# install github cli
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0 \
+    && apt-add-repository https://cli.github.com/packages \
+    && apt update \
+    && apt install -y gh
 # configure pt_BR locale
 ENV LC_ALL pt_BR.UTF-8
 ENV LANG pt_BR.UTF-8
