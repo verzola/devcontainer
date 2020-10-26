@@ -2,7 +2,7 @@ FROM ubuntu:focal
 ENV TZ=America/Sao_Paulo
 ARG DEBIAN_FRONTEND=noninteractive
 # install basic packages
-RUN apt update && apt full-upgrade
+RUN apt update && apt full-upgrade -y
 RUN apt install -y git \
     curl \
     wget \
