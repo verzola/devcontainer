@@ -1,9 +1,10 @@
 {
   "name": "justdigital/devcontainer",
   // use dockerfile to build dev container
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  // "build": {
+  //   "dockerfile": "Dockerfile"
+  // },
+  "image": "verzola/devcontainer",
   // forward common development ports
   "forwardPorts": [3000, 3001],
   "appPort": [3000, 3001],
