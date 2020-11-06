@@ -24,6 +24,9 @@ RUN apt install -y git \
 RUN curl -sL https://deb.nodesource.com/setup_12.x  | bash -
 RUN apt-get -y install nodejs
 
+# install gulp globally
+RUN npm install -g gulp npm-check-updates prettier
+
 # install oh my zsh
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
