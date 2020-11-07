@@ -21,24 +21,10 @@
   "remoteEnv": {
     "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
   },
+  // uncomment to install dependencies on container start
+  //"postStartCommand": "npm install",
   // extensions to install in container
   "extensions": [
-    // ----- HTML -----
-    // "ecmel.vscode-html-css", // HTML CSS Support
-    //"formulahendry.auto-close-tag", // Auto Close Tag
-    //"formulahendry.auto-rename-tag",  // Auto Rename Tag
-    // ----- JavaScript -----
-    //"christian-kohler.npm-intellisense",  // npm Intellisense
-    //"dbaeumer.vscode-eslint",  // ESLint
-    //"eg2.vscode-npm-script", //
-    //"msjsdiag.debugger-for-chrome", // Debugger for Chrome
-    //"visualstudioexptteam.vscodeintellicode", // Visual Studio IntelliCode
-    // ----- PHP -----
-    //"felixfbecker.php-pack", // PHP Extension Pack
-    //"junstyle.php-cs-fixer", // php cs fixer
-    //"kokororin.vscode-phpfmt", // phpfmt - PHP formatter
-    // ----- MARKDOWN -----
-    // "yzhang.markdown-all-in-one", // Markdown All in One
     // ----- CODE STYLE -----
     "editorconfig.editorconfig", // EditorConfig for VS Code
     "esbenp.prettier-vscode", // Prettier
@@ -56,5 +42,21 @@
     "eamodio.gitlens", // GitLens
     "github.vscode-pull-request-github", // GitHub Pull Requests
     "vivaxy.vscode-conventional-commits", // Conventional Commits
+    // ----- HTML -----
+    // "ecmel.vscode-html-css", // HTML CSS Support
+    //"formulahendry.auto-close-tag", // Auto Close Tag
+    //"formulahendry.auto-rename-tag",  // Auto Rename Tag
+    // ----- JavaScript -----
+    //"christian-kohler.npm-intellisense",  // npm Intellisense
+    //"dbaeumer.vscode-eslint",  // ESLint
+    //"eg2.vscode-npm-script", //
+    //"msjsdiag.debugger-for-chrome", // Debugger for Chrome
+    //"visualstudioexptteam.vscodeintellicode", // Visual Studio IntelliCode
+    // ----- PHP -----
+    //"felixfbecker.php-pack", // PHP Extension Pack
+    //"junstyle.php-cs-fixer", // php cs fixer
+    //"kokororin.vscode-phpfmt", // phpfmt - PHP formatter
+    // ----- MARKDOWN -----
+    // "yzhang.markdown-all-in-one", // Markdown All in One
   ]
 }
