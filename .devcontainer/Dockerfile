@@ -3,26 +3,28 @@ ENV TZ=America/Sao_Paulo
 ARG DEBIAN_FRONTEND=noninteractive
 
 # install basic packages
-RUN apt update && apt full-upgrade -y && apt install -y git \
-    curl \
-    wget \
-    unzip \
-    vim \
+RUN apt update && apt full-upgrade -y && apt install -y \
+    apt-transport-https \
     build-essential \
-    software-properties-common \
-    zsh \
+    curl \
     fzf \
-    tmux \
-    htop \
+    git \
     gnupg \
+    gnupg2 \
+    htop \
     locales \
     locales-all \
     php-cli \
-    gnupg2 \
+    software-properties-common \
+    tmux \
+    unzip \
+    vim \
+    wget \
+    zsh \
     && rm -rf /var/lib/apt/lists/*
 
 # install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_12.x  | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x  | bash -
 RUN apt-get -y install nodejs
 
 # install gulp globally
@@ -46,9 +48,11 @@ RUN LATEST_COMPOSE_VERSION=$(curl -sSL "https://api.github.com/repos/docker/comp
     && chmod +x /usr/local/bin/docker-compose
 
 # install kubectl
-RUN curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" \
-    && chmod +x ./kubectl \
-    && mv ./kubectl /usr/local/bin/kubectl
+RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - \
+    && echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list \
+    && apt-get update \
+    && apt-get install -y kubectl \
+    && rm -rf /var/lib/apt/lists/*
 
 # install composer
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
