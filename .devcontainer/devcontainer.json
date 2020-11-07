@@ -1,9 +1,10 @@
 {
-  "name": "justdigital/devcontainer",
-  // use dockerfile to build dev container
-  // "build": {
-  //   "dockerfile": "Dockerfile"
-  // },
+  "name": "verzola/devcontainer",
+  // uncomment to use dockerfile to build dev container
+  //"build": {
+  //  "dockerfile": "Dockerfile"
+  //},
+  // use extracted image
   "image": "verzola/devcontainer",
   // expose common development ports
   "appPort": [3000, 3001],
@@ -20,32 +21,40 @@
   "remoteEnv": {
     "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
   },
+  // extensions to install in container
   "extensions": [
-    "christian-kohler.npm-intellisense",
-    "christian-kohler.path-intellisense",
-    "coenraads.bracket-pair-colorizer",
-    "dbaeumer.vscode-eslint",
-    "dracula-theme.theme-dracula",
-    "eamodio.gitlens",
-    "editorconfig.editorconfig",
-    "eg2.vscode-npm-script",
-    "esbenp.prettier-vscode",
-    "felixfbecker.php-pack",
-    "formulahendry.auto-close-tag",
-    "formulahendry.auto-rename-tag",
-    "github.vscode-pull-request-github",
-    "junstyle.php-cs-fixer",
-    "kokororin.vscode-phpfmt",
-    "mikestead.dotenv",
-    "ms-azuretools.vscode-docker",
-    "ms-vsliveshare.vsliveshare",
-    "msjsdiag.debugger-for-chrome",
-    "redhat.vscode-yaml",
-    "shardulm94.trailing-spaces",
-    "visualstudioexptteam.vscodeintellicode",
-    "vivaxy.vscode-conventional-commits",
-    "wayou.vscode-todo-highlight",
-    "yzhang.markdown-all-in-one",
-    "zignd.html-css-class-completion",
+    // ----- HTML -----
+    // "ecmel.vscode-html-css", // HTML CSS Support
+    //"formulahendry.auto-close-tag", // Auto Close Tag
+    //"formulahendry.auto-rename-tag",  // Auto Rename Tag
+    // ----- JavaScript -----
+    //"christian-kohler.npm-intellisense",  // npm Intellisense
+    //"dbaeumer.vscode-eslint",  // ESLint
+    //"eg2.vscode-npm-script", //
+    //"msjsdiag.debugger-for-chrome", // Debugger for Chrome
+    //"visualstudioexptteam.vscodeintellicode", // Visual Studio IntelliCode
+    // ----- PHP -----
+    //"felixfbecker.php-pack", // PHP Extension Pack
+    //"junstyle.php-cs-fixer", // php cs fixer
+    //"kokororin.vscode-phpfmt", // phpfmt - PHP formatter
+    // ----- MARKDOWN -----
+    // "yzhang.markdown-all-in-one", // Markdown All in One
+    // ----- CODE STYLE -----
+    "editorconfig.editorconfig", // EditorConfig for VS Code
+    "esbenp.prettier-vscode", // Prettier
+    "shardulm94.trailing-spaces", // Trailling Spaces
+    "wayou.vscode-todo-highlight", // TODO Highlight
+    "coenraads.bracket-pair-colorizer", // Bracket Pair Colorizer
+    "dracula-theme.theme-dracula", // Dracula Official
+    // ----- GENERAL -----
+    "christian-kohler.path-intellisense", // Path Intellisense
+    "mikestead.dotenv", // DotENV
+    "ms-azuretools.vscode-docker", // Docker
+    "ms-vsliveshare.vsliveshare", // Live Share
+    "redhat.vscode-yaml", // YAML
+    // ----- GIT -----
+    "eamodio.gitlens", // GitLens
+    "github.vscode-pull-request-github", // GitHub Pull Requests
+    "vivaxy.vscode-conventional-commits", // Conventional Commits
   ]
 }
