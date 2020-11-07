@@ -11,14 +11,21 @@ Development container with common tools for web development with JavaScript and 
 2. Open the project with VSCode;
 3. Click on "Reopen in Container" when it pop ups on the bottom right;
 ![Reopen in container](img/popup.png)
-4. Wait for the container to be built;
+4. Wait a minute;
 5. Done!
 
 ## Comes with
+- Zsh
+- Oh My Zsh
+- Fzf
 - Docker
 - Docker Compose
 - PHP
 - Composer
-- NodeJS & NPM
-- Oh My Zsh
-- Fzf
+- NodeJS
+- NPM
+- Yarn
+
+## Extensions
+General extensions are installed by default, but specific extensions are commented and separated by language.
+To choose what extensions should be installed inside the container, uncomment the sections in `.devcontainer/devcontainer.json`.
