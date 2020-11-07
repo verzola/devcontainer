@@ -16,7 +16,8 @@
   // config to make docker work inside container
   "runArgs": ["--init"],
   "mounts": [
-    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind"
+    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
+    "source=${env:HOME}${env:USERPROFILE}/.kube,target=/usr/local/share/kube-localhost,type=bind"
   ],
   "remoteEnv": {
     "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
@@ -66,5 +67,8 @@
     //"octref.vetur", // Vetur
     // ----- KUBERNETES -----
     "ms-kubernetes-tools.vscode-kubernetes-tools", // Kubernetes
+    "mindaro.mindaro", // Bridge to Kubernetes
+    "okteto.remote-kubernetes", // Remote - Kubernetes
+    "okteto.kubernetes-context", // Kubernetes Context
   ]
 }

@@ -29,3 +29,10 @@ Development container with common tools for web development with JavaScript and 
 ## Extensions
 General extensions are installed by default, but specific extensions are commented and separated by language.
 To choose what extensions should be installed inside the container, uncomment the sections in `.devcontainer/devcontainer.json`.
+
+## Update
+To use a newer version of the devcontainer, first, pull the image:
+```sh
+$ docker pull verzola/devcontainer
+```
+Then, press Ctrl+Shift+P to open Command Palette and run *Remote-Containers: Rebuild Container*.
