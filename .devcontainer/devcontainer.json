@@ -70,5 +70,6 @@
     "mindaro.mindaro", // Bridge to Kubernetes
     "okteto.remote-kubernetes", // Remote - Kubernetes
     "okteto.kubernetes-context", // Kubernetes Context
+    "googlecloudtools.cloudcode", // Cloud Code
   ]
 }
