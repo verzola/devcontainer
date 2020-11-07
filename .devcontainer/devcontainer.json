@@ -1,11 +1,11 @@
 {
   "name": "verzola/devcontainer",
   // uncomment to use dockerfile to build dev container
-  //"build": {
-  //  "dockerfile": "Dockerfile"
-  //},
+  "build": {
+   "dockerfile": "Dockerfile"
+  },
   // use extracted image
-  "image": "verzola/devcontainer",
+  //"image": "verzola/devcontainer",
   // expose common development ports
   "appPort": [3000, 3001],
   // use zsh on integrated shell

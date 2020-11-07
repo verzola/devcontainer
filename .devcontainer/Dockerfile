@@ -64,7 +64,7 @@ RUN chown ${USERNAME}:root /usr/local/share/copy-kube-config.sh \
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 # install github cli
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0 \
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0 \
     && apt-add-repository https://cli.github.com/packages \
     && apt update \
     && apt install -y gh \
@@ -80,6 +80,12 @@ COPY ./scripts/docker-debian.sh /tmp/library-scripts/
 RUN apt-get update && bash /tmp/library-scripts/docker-debian.sh \
   && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
 ENTRYPOINT ["/usr/local/share/docker-init.sh"]
+
+# install hashicorp tools
+RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - \
+   && apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
+   && apt install -y waypoint terraform \
+   && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
 
 # change shell to zsh
 RUN chsh -s ~/.zshrc
