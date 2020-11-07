@@ -18,6 +18,7 @@ RUN apt update && apt full-upgrade -y && apt install -y git \
     locales \
     locales-all \
     php-cli \
+    gnupg2 \
     && rm -rf /var/lib/apt/lists/*
 
 # install nodejs

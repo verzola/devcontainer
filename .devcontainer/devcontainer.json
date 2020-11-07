@@ -5,11 +5,8 @@
   //   "dockerfile": "Dockerfile"
   // },
   "image": "verzola/devcontainer",
-  // forward common development ports
-  "forwardPorts": [3000, 3001],
+  // expose common development ports
   "appPort": [3000, 3001],
-  // install project dependencies after container is created
-  "postCreateCommand": "npm install && npm install -g jshint",
   // use zsh on integrated shell
   "settings": {
     "terminal.integrated.shell.linux": "/usr/bin/zsh",
