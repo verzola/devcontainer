@@ -7,7 +7,7 @@
   // use extracted image
   //"image": "verzola/devcontainer",
   // expose common development ports
-  "appPort": [3000, 3001],
+  //"appPort": [3000, 3001],
   // use zsh on integrated shell
   "settings": {
     "terminal.integrated.shell.linux": "/usr/bin/zsh",
@@ -16,7 +16,9 @@
   // config to make docker work inside container
   "runArgs": ["--init"],
   "mounts": [
-    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind"
+    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
+    // mount projects folder
+    "source=/home/verzola/projects,target=/projects,type=bind",
   ],
   "remoteEnv": {
     "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
@@ -53,7 +55,7 @@
     // ----- JavaScript -----
     //"christian-kohler.npm-intellisense",  // npm Intellisense
     //"dbaeumer.vscode-eslint",  // ESLint
-    //"eg2.vscode-npm-script", //
+    //"eg2.vscode-npm-script", // NPM
     //"msjsdiag.debugger-for-chrome", // Debugger for Chrome
     //"visualstudioexptteam.vscodeintellicode", // Visual Studio IntelliCode
     // ----- PHP -----

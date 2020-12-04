@@ -15,6 +15,13 @@ RUN apt update && apt full-upgrade -y && apt install -y \
     locales \
     locales-all \
     php-cli \
+    php-curl \
+    php-xml \
+    php-mysql \
+    php-mbstring \
+    php-gd \
+    php-json \
+    php-zip \
     software-properties-common \
     tmux \
     unzip \
@@ -49,7 +56,7 @@ RUN LATEST_COMPOSE_VERSION=$(curl -sSL "https://api.github.com/repos/docker/comp
     && chmod +x /usr/local/bin/docker-compose
 
 # install composer
-COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:1.10.17 /usr/bin/composer /usr/local/bin/composer
 
 # install github cli
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0 \
