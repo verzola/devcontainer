@@ -48,18 +48,6 @@ RUN LATEST_COMPOSE_VERSION=$(curl -sSL "https://api.github.com/repos/docker/comp
     && curl -sSL "https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose
 
-# install kubectl
-RUN curl -sSL -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \
-    && chmod +x /usr/local/bin/kubectl
-
-# install helm
-RUN curl -s https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash -
-
-# copy k8s config
-COPY ./scripts/copy-kube-config.sh /usr/local/share/
-RUN chown ${USERNAME}:root /usr/local/share/copy-kube-config.sh \
-    && echo "source /usr/local/share/copy-kube-config.sh" | tee -a /root/.bashrc /root/.zshrc /home/${USERNAME}/.bashrc >> /home/${USERNAME}/.zshrc
-
 # install composer
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
@@ -80,12 +68,6 @@ COPY ./scripts/docker-debian.sh /tmp/library-scripts/
 RUN apt-get update && bash /tmp/library-scripts/docker-debian.sh \
   && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
 ENTRYPOINT ["/usr/local/share/docker-init.sh"]
-
-# install hashicorp tools
-RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - \
-   && apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
-   && apt install -y waypoint terraform \
-   && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
 
 # change shell to zsh
 RUN chsh -s ~/.zshrc
